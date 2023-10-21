@@ -1,18 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import useCreateOfferTransaction from "../useCreateOfferTransaction";
 
 const Table = () => {
-  const [selectedRows, setSelectedRows] = useState([]);
-
-  const handleCheckboxChange = (id) => {
-    if (selectedRows.includes(id)) {
-      setSelectedRows(selectedRows.filter((rowId) => rowId !== id));
-    } else {
-      setSelectedRows([...selectedRows, id]);
-    }
-  };
-
-  const { createOffer } = useCreateOfferTransaction({ amount: 10 });
+  const { createOffer } = useCreateOfferTransaction({
+    amount: 10,
+    interest: 20,
+    duration: 365,
+  });
   return (
     <div className="container mx-auto mt-8">
       <table className="min-w-full border border-gray-300">
@@ -69,10 +63,10 @@ const Table = () => {
             >
               <a
                 href="#_"
-                class="px-5 py-2.5 relative rounded group overflow-hidden font-medium bg-purple-50 text-purple-600 inline-block"
+                className="px-5 py-2.5 relative rounded group overflow-hidden font-medium bg-purple-50 text-purple-600 inline-block"
               >
-                <span class="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-purple-600 group-hover:h-full opacity-90"></span>
-                <span class="relative group-hover:text-white">
+                <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-purple-600 group-hover:h-full opacity-90"></span>
+                <span className="relative group-hover:text-white">
                   Create offer
                 </span>
               </a>

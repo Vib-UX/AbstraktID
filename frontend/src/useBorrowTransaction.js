@@ -1,37 +1,35 @@
-import BigNumber from "bignumber.js";
 import { Contract } from "ethers";
-
-import { erc20ABI, useWalletClient } from "wagmi";
+import { erc721ABI, useWalletClient } from "wagmi";
 import LoanABI from "./abi/LoanContractABI.json";
 
-const useCreateOfferTransaction = ({ amount, interest, duration }) => {
-  let x = new BigNumber("100000000000000000000");
+const useBorrowTransaction = () => {
   const { data: signer } = useWalletClient();
 
-  const createOffer = async () => {
+  const borrow = async (_offerId, _tokenId) => {
+    debugger;
     try {
       const token = new Contract(
-        "0xf5bcb88eef2ede0d09d8329c3c94ebd2758356e2",
-        erc20ABI,
+        "0x99Ddec1F2d94C1b453E18F057190493c16d43484",
+        erc721ABI,
         signer
       );
       await token.approve(
         "0xDAA0fDD4b4797Ceb97A6D58dd86b4f0F003CFCA2",
-        x.toString()
+        _tokenId
       );
       const loanContract = new Contract(
         "0xDAA0fDD4b4797Ceb97A6D58dd86b4f0F003CFCA2",
         LoanABI,
         signer
       );
-      await loanContract.createLendOffer(x.toString(), interest, duration);
+      await loanContract.borrow(_offerId.toString(), _tokenId);
     } catch (error) {
       console.log(error);
     }
   };
   return {
-    createOffer,
+    borrow,
   };
 };
 
-export default useCreateOfferTransaction;
+export default useBorrowTransaction;

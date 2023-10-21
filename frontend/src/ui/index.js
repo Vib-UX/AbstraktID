@@ -3,6 +3,8 @@ import Navigation from "./Home";
 
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import MyModal from "../Modal";
+import BorrowLendTable from "./BorrowLendTable";
 import DataTable from "./Table";
 
 export const darkTheme = createTheme({
@@ -12,9 +14,12 @@ export const darkTheme = createTheme({
 });
 
 function Main() {
-  const [isVerified, setIsVerified] = useState(false);
+  const [type, setType] = useState("lend");
+  const [isOpen, setIsOpen] = useState(false);
+  const [data, setData] = useState([]);
   return (
     <ThemeProvider theme={darkTheme}>
+      <MyModal setIsOpen={setIsOpen} isOpen={isOpen} data={data} />
       <CssBaseline />
       <Navigation />
       <div className="h-[200px]"></div>
@@ -25,17 +30,27 @@ function Main() {
           margin: "auto",
         }}
       >
-        <DataTable />
+        <div className="flex items-center space-x-3 justify-start">
+          <button
+            onClick={() => {
+              setType("lend");
+            }}
+          >
+            Lend
+          </button>
+          <button
+            onClick={() => {
+              setType("borrow");
+            }}
+          >
+            Borrow
+          </button>
+        </div>
+        {type === "lend" && <DataTable />}
+        {type === "borrow" && (
+          <BorrowLendTable setIsOpen={setIsOpen} setData={setData} />
+        )}
       </div>
-      {/* {!isVerified && (
-        <SimplePaper isVerified={isVerified} setIsVerified={setIsVerified} />
-      )} */}
-      {/* {isVerified && (
-        <HorizontalLinearStepper
-          isVerified={isVerified}
-          setIsVerified={setIsVerified}
-        />
-      )} */}
     </ThemeProvider>
   );
 }
