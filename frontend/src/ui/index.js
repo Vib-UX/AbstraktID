@@ -17,6 +17,7 @@ function Main() {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <Navigation />
+      <div className="h-[200px]"></div>
       <div
         style={{
           maxWidth: "1000px",
