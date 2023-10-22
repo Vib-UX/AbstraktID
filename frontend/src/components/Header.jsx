@@ -5,7 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
-// import LoginVerifier from "./LoginModal";
+import LoginVerifier from "./LoginModal";
 
 export default function Navigation() {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ export default function Navigation() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      {/* <LoginVerifier
+      <LoginVerifier
         publicServerURL={"https://ad48-2a09-bac1-36a0-58-00-23-460.ngrok.io"}
         localServerURL={"https://backend-service-autoloan.onrender.com/"}
         open={open}
@@ -22,7 +22,7 @@ export default function Navigation() {
           console.log("verified");
           navigate("/claim");
         }}
-      /> */}
+      />
 
       <AppBar
         position="static"
