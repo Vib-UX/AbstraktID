@@ -34,8 +34,8 @@ export default function FormPropsTextFields() {
       const res = await axios.post(API_URL + "/api/get-vc", {
         id: data.did,
         age: data.age,
-        experience: data.workExperience,
-        lastYearSalaryINR: data.salary,
+        income: data.workExperience,
+        creditScore: data.salary,
       });
       const axiosdata = res.data;
       setIsLoading(false);
@@ -110,7 +110,7 @@ export default function FormPropsTextFields() {
             />
             <TextField
               id="outlined-number"
-              label="Enter no of work experience"
+              label="Enter your income"
               value={data.workExperience}
               onChange={(e) =>
                 setData({ ...data, workExperience: e.target.value })
@@ -127,7 +127,7 @@ export default function FormPropsTextFields() {
             />
             <TextField
               id="outlined-number"
-              label="Enter salary in USD"
+              label="Enter credit score"
               type="number"
               value={data.salary}
               onChange={(e) => setData({ ...data, salary: e.target.value })}
