@@ -60,10 +60,10 @@ function Main() {
             Borrow
           </a>
         </div>
-        {type === "lend" && <DataTable />}
-        {type === "borrow" && (
+        {/* {type === "lend" && <DataTable />} */}
+        {/* {type === "borrow" && (
           <BorrowLendTable setIsOpen={setIsOpen} setData={setData} />
-        )}
+        )} */}
       </div>
     </ThemeProvider>
   );
