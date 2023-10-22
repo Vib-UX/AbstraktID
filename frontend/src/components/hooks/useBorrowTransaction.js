@@ -24,7 +24,7 @@ const useBorrowTransaction = () => {
       const token = new Contract(tokenAddress[chain.id][1], erc721ABI, signer);
       await token.approve(tokenAddress[chain.id][2], _tokenId);
       const loanContract = new Contract(
-        tokenAddress[chain][2],
+        tokenAddress[chain.id][2],
         LoanABI,
         signer
       );
