@@ -21,3 +21,22 @@ Our dApp combines Verifiable Credentials (VC), account abstraction, and Filecoin
 - **Filecoin Integration**: Utilizes Filecoin for web3 storage of NFT metadata, ensuring secure and decentralized storage for valuable NFT information. 📦🌐🔒
 
 This innovative combination of technologies ensures a seamless and secure lending and borrowing experience, with NFT collateralization adding a unique dimension to auto financing.
+
+## Contracts on Polygon Mumbai Network
+
+- **USDC Contract on Polygon**: [USDC Contract](https://mumbai.polygonscan.com/address/0xf5bcb88eef2ede0d09d8329c3c94ebd2758356e2#readContract)
+
+- **Vehicle NFTCollateral Contract on Polygon**: [Vehicle NFTCollateral](https://mumbai.polygonscan.com/address/0x99ddec1f2d94c1b453e18f057190493c16d43484#code)
+
+- **Vehicle LoanContract on Polygon**: [Vehicle LoanContract](https://mumbai.polygonscan.com/address/0xdaa0fdd4b4797ceb97a6d58dd86b4f0f003cfca2#readContract)
+
+
+## Contracts on Scroll Test Network
+
+- **Vehicle LoanContract on Scroll**: [Vehicle LoanContract](https://sepolia-blockscout.scroll.io/address/0x8fB873e697a106e7Dd819547587AcAEf0840E835/transactions#address-tabs)
+
+- **USDC Contract on Scroll**: [USDC Contract](https://sepolia-blockscout.scroll.io/address/0x7378f4E7b172786F9DB1aaA4b55520fbaA7895D9)
+
+- **Vehicle NFTCollateral Contract on Scroll**: [Vehicle NFTCollateral](https://sepolia-blockscout.scroll.io/address/0x0AbE7d88C0af51935DC254104151ea859DA06A2f)
+
+
