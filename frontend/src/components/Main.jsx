@@ -4,6 +4,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import BorrowLendTable from "./BorrowLendTable";
 import Navigation from "./Header";
+import HorizontalLinearStepper from "./Steps";
 import DataTable from "./Table";
 import MyModal from "./modal";
 
@@ -17,6 +18,17 @@ function Main() {
   const [type, setType] = useState("lend");
   const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState([]);
+  const [isVerified, setIsVerified] = useState(false);
+
+  if (isVerified) {
+    return (
+      <HorizontalLinearStepper
+        isVerified={isVerified}
+        setIsVerified={setIsVerified}
+      />
+    );
+  }
+
   return (
     <ThemeProvider theme={darkTheme}>
       <MyModal setIsOpen={setIsOpen} isOpen={isOpen} data={data} />
@@ -60,7 +72,7 @@ function Main() {
             Borrow
           </a>
         </div>
-        {type === "lend" && <DataTable />}
+        {type === "lend" && <DataTable setIsVerified={setIsVerified} />}
         {type === "borrow" && (
           <BorrowLendTable setIsOpen={setIsOpen} setData={setData} />
         )}

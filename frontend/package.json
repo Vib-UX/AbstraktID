@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@headlessui/react": "^1.7.17",
@@ -20,9 +21,11 @@
     "axios": "^1.5.1",
     "ethers": "^6.8.0",
     "react": "^18.2.0",
+    "react-confetti": "^6.1.0",
     "react-dom": "^18.2.0",
     "react-qr-code": "^2.0.12",
     "react-router-dom": "^6.17.0",
+    "react-use": "^17.4.0",
     "socket.io-client": "^4.7.2",
     "viem": "^1.16.6",
     "wagmi": "^1.4.5"
