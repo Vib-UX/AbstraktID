@@ -21,14 +21,14 @@ const useBorrowTransaction = () => {
   const borrow = async (_offerId, _tokenId) => {
     try {
       if (!chain) return;
-      const token = new Contract(tokenAddress[chain][1], erc721ABI, signer);
-      await token.approve(tokenAddress[chain][2], _tokenId);
+      const token = new Contract(tokenAddress[chain.id][1], erc721ABI, signer);
+      await token.approve(tokenAddress[chain.id][2], _tokenId);
       const loanContract = new Contract(
         tokenAddress[chain][2],
         LoanABI,
         signer
       );
-      await loanContract.borrow(_offerId.toString(), _tokenId);
+      await loanContract.borrow(_offerId.toString(), _tokenId.toString());
     } catch (error) {
       console.log(error);
     }
