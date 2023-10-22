@@ -14,7 +14,7 @@ export default function Navigation() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <LoginVerifier
-        publicServerURL={"https://ad48-2a09-bac1-36a0-58-00-23-460.ngrok.io"}
+        publicServerURL={"https://abstrakt-id-mu.vercel.app/"}
         localServerURL={"https://backend-service-autoloan.onrender.com/"}
         open={open}
         setOpen={setOpen}
