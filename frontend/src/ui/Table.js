@@ -12,22 +12,40 @@ const Table = () => {
       <table className="min-w-full border border-gray-300">
         <thead>
           <tr className="">
-            <th className="py-2 px-4 border-b text-center">ID</th>
-            <th className="py-2 px-4 border-b text-center">Name</th>
-            <th className="py-2 px-4 border-b text-center">Age</th>
-            <th className="py-2 px-4 border-b text-center">Email</th>
-            <th className="py-2 px-4 border-b text-center">Select All</th>
-            <th className="py-2 px-4 border-b text-center">Checkbox</th>
-            <th className="py-2 px-4 border-b text-center">Checkbox</th>
+            <th className="py-2 px-4 border-b text-center"></th>
+            <th className="py-2 px-4 border-b text-center">Amount</th>
+            <th className="py-2 px-4 border-b text-center">Interest</th>
+            <th className="py-2 px-4 border-b text-center">Duration</th>
+            <th className="py-2 px-4 border-b text-center">Eligible</th>
+            <th className="py-2 px-4 border-b text-center">Eligible</th>
+            <th className="py-2 px-4 border-b text-center">Eligible</th>
             <th className="py-2 px-4 border-b text-center"></th>
           </tr>
         </thead>
         <tbody>
           <tr className="border-b">
             <td className="py-4 px-4 border-b text-center">1</td>
-            <td className="py-4 px-4 border-b text-center">John Doe</td>
-            <td className="py-4 px-4 border-b text-center">30</td>
-            <td className="py-4 px-4 border-b text-center">john@example.com</td>
+            <td className="py-4 px-4 border-b text-center">
+              <input
+                className="bg-transparent text-white border border-white px-2 py-2 focus:outline-none"
+                placeholder="Enter amount"
+                type="number"
+              />
+            </td>
+            <td className="py-4 px-4 border-b text-center">
+              <input
+                className="bg-transparent text-white border border-white px-2 py-2 focus:outline-none"
+                placeholder="Enter interest"
+                type="number"
+              />
+            </td>
+            <td className="py-4 px-4 border-b text-center">
+              <input
+                className="bg-transparent text-white border border-white px-2 py-2 focus:outline-none"
+                placeholder="Enter duration"
+                type="number"
+              />
+            </td>
             <td className="py-4 px-4 border-b text-center">
               <input
                 type="checkbox"
@@ -56,7 +74,7 @@ const Table = () => {
               />
             </td>
             <td
-              className="py-4 px-4 border-b text-center"
+              className="py-4 px-4 border-b text-center min-w-[200px]"
               onClick={() => {
                 createOffer && createOffer();
               }}

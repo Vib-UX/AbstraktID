@@ -31,20 +31,34 @@ function Main() {
         }}
       >
         <div className="flex items-center space-x-3 justify-start">
-          <button
+          <a
+            href="#_"
+            className={`"inline-flex items-center justify-center px-4 py-2 text-base font-medium border border-transparent leading-6 text-white whitespace-no-wrap rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2  ${
+              type === "lend" && "bg-blue-600 border border-blue-700 "
+            }}`}
+            data-rounded="rounded-md"
+            data-primary="blue-600"
+            data-primary-reset="{}"
             onClick={() => {
               setType("lend");
             }}
           >
             Lend
-          </button>
-          <button
+          </a>
+          <a
+            href="#_"
+            className={`"inline-flex items-center justify-center px-4 py-2 text-base font-medium border border-transparent leading-6 text-white whitespace-no-wrap rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2  ${
+              type === "borrow" && "bg-blue-600 border border-blue-700 "
+            }}`}
+            data-rounded="rounded-md"
+            data-primary="blue-600"
+            data-primary-reset="{}"
             onClick={() => {
               setType("borrow");
             }}
           >
             Borrow
-          </button>
+          </a>
         </div>
         {type === "lend" && <DataTable />}
         {type === "borrow" && (

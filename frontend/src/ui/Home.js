@@ -1,14 +1,31 @@
+import { Button } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
+import LoginVerifier from "./LoginModal";
 
 export default function Navigation() {
   const navigate = useNavigate();
+  const [open, setOpen] = React.useState(false);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
+      <LoginVerifier
+        publicServerURL={process.env.REACT_APP_VERIFICATION_SERVER_PUBLIC_URL}
+        localServerURL={
+          process.env.REACT_APP_VERIFICATION_SERVER_LOCAL_HOST_URL
+        }
+        open={open}
+        setOpen={setOpen}
+        onVerificationResult={() => {
+          console.log("verified");
+          navigate("/claim");
+        }}
+      />
+
       <AppBar
         position="static"
         style={{
@@ -47,7 +64,23 @@ export default function Navigation() {
               />{" "}
             </Link>
           </Typography> */}
-
+          <Button
+            variant="contained"
+            style={{
+              backgroundColor: "#8d2cab",
+              fontWeight: "normal",
+              color: "#fff",
+            }}
+            onClick={() => {
+              if (localStorage.getItem("user_did")) {
+                navigate("/claim");
+              } else {
+                setOpen(true);
+              }
+            }}
+          >
+            Create a new claim
+          </Button>
           <ConnectButton />
         </Toolbar>
       </AppBar>
