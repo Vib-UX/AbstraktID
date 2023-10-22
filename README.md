@@ -1,10 +1,29 @@
-# AbstraktID 🆔
+## **Abstrakt🆔 Playground:** [Get Your Auto Loan Approved 💰](https://abstract-id.vercel.app/)
+- [x] **Project Video Demo Link:** [Loom](https://www.loom.com/share/09e8cf30bf85482d865dba9d8ad1124b?sid=c0360512-1b96-4573-9e13-4268fe1f5cbc)
 
-Our dApp combines Verifiable Credentials (VC), account abstraction, and Filecoin for secure identity management, cross-chain transactions, and decentralized data storage, creating a trusted VC-gated lending and borrowing platform.
 
-## Project Overview
+## Results 
 
+
+![Screenshot 2023-10-22 at 11 13 53 PM](https://github.com/Vib-UX/AbstraktID/assets/40585900/cd81e3cb-afed-448e-9711-a4286184ca13)
+![Screenshot 2023-10-22 at 11 14 06 PM](https://github.com/Vib-UX/AbstraktID/assets/40585900/9b0b34ba-d531-4f7a-aab3-7492825a7b34)
+
+<img src="https://user-images.githubusercontent.com/40585900/277186342-1f72dcd1-f768-4c62-ade7-77d65fc71ecf.jpg" width="300"> <img src="https://drive.google.com/uc?export=view&id=1fjbTJTBDafR430RSpnVKmAqJXw6O28-g" width="300"> <img src="https://user-images.githubusercontent.com/40585900/277187080-23dd6c1f-9c54-451b-b504-49f210706c21.jpg" width="300">
+
+![Screenshot 2023-10-22 at 11 12 50 PM](https://github.com/Vib-UX/AbstraktID/assets/40585900/0590c5e0-4b6b-4f1e-bbf9-ae5ec2e2ad95)
+
+
+<img src="https://user-images.githubusercontent.com/40585900/277187293-70671c05-50cd-4aba-a20a-cba5c2004a7e.jpg" alt="Image 2" width="300"> <img src="https://user-images.githubusercontent.com/40585900/277187285-cdcc7d0a-c0ac-4c26-81e9-cec047ac9b89.jpg" alt="Image 1" width="300"> <img src="https://user-images.githubusercontent.com/40585900/277187299-5467d919-c51e-4cd5-acba-f527c7e0530b.jpg" alt="Image 3" width="300">
+
+<img src="https://drive.google.com/uc?export=view&id=1fcUy-_7mpDh8mIbjfaxNlOcBXTmUUuoL" width="300">
+
+
+
+![Screenshot 2023-10-22 at 11 12 29 PM](https://github.com/Vib-UX/AbstraktID/assets/40585900/6f6b1616-117d-4439-9948-7a7f51ecdd51)
+
+## Abstrakt🆔 Overview
 🚀🔐 AbstraktID is a decentralized web application designed to streamline the auto loan approval process. Leveraging the power of Polygon ID and secure contract deployment on the Sepolia Scroll, Polygon Network, this project provides a reliable and efficient solution for identity verification and loan approval in the world of blockchain finance.
+
 
 ## Features
 
