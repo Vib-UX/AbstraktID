@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import useCreateOfferTransaction from "./hooks/useCreateOfferTransaction";
 
 const Table = ({ setIsVerified }) => {
+  const [inputValues, setInputValues] = useState({
+    amount: "",
+    interest: "",
+    duration: "",
+  });
   const { createOffer } = useCreateOfferTransaction({
-    amount: 10,
-    interest: 20,
-    duration: 365,
+    amount: inputValues.amount,
+    interest: inputValues.interest,
+    duration: inputValues.duration,
   });
   return (
     <div className="container mx-auto mt-8">
@@ -28,6 +33,13 @@ const Table = ({ setIsVerified }) => {
                 className="bg-transparent text-white border border-white px-2 py-2 focus:outline-none"
                 placeholder="Enter amount"
                 type="number"
+                value={inputValues.amount}
+                onChange={(e) =>
+                  setInputValues({
+                    ...inputValues,
+                    amount: e.target.value,
+                  })
+                }
               />
             </td>
             <td className="py-4 px-4 border-b text-center">
@@ -35,6 +47,13 @@ const Table = ({ setIsVerified }) => {
                 className="bg-transparent text-white border border-white px-2 py-2 focus:outline-none"
                 placeholder="Enter interest"
                 type="number"
+                value={inputValues.interest}
+                onChange={(e) =>
+                  setInputValues({
+                    ...inputValues,
+                    interest: e.target.value,
+                  })
+                }
               />
             </td>
             <td className="py-4 px-4 border-b text-center">
@@ -42,6 +61,13 @@ const Table = ({ setIsVerified }) => {
                 className="bg-transparent text-white border border-white px-2 py-2 focus:outline-none"
                 placeholder="Enter duration"
                 type="number"
+                value={inputValues.duration}
+                onChange={(e) =>
+                  setInputValues({
+                    ...inputValues,
+                    duration: e.target.value,
+                  })
+                }
               />
             </td>
             {/* <td className="py-4 px-4 border-b text-center">
@@ -74,8 +100,7 @@ const Table = ({ setIsVerified }) => {
             <td
               className="py-4 px-4 border-b text-center min-w-[200px]"
               onClick={() => {
-                // createOffer && createOffer();
-                setIsVerified(true);
+                createOffer && createOffer();
               }}
             >
               <a
@@ -83,7 +108,9 @@ const Table = ({ setIsVerified }) => {
                 className="px-5 py-2.5 relative rounded group overflow-hidden font-medium bg-purple-50 text-purple-600 inline-block"
               >
                 <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-purple-600 group-hover:h-full opacity-90"></span>
-                <span className="relative group-hover:text-white">Verify </span>
+                <span className="relative group-hover:text-white">
+                  Create Offer{" "}
+                </span>
               </a>
             </td>
           </tr>

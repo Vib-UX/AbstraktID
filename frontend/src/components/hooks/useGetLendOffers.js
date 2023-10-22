@@ -1,15 +1,17 @@
 import { readContract } from "@wagmi/core";
 import BigNumber from "bignumber.js";
 import { useEffect, useState } from "react";
-import { useWalletClient } from "wagmi";
+import { useNetwork, useWalletClient } from "wagmi";
 import LoanABI from "../abi/LoanContractABI.json";
+import { tokenAddress } from "./useBorrowTransaction";
 
 const useGetLendOffers = () => {
   const [lendOffers, setLendOffers] = useState([]);
   const { data: signer } = useWalletClient();
+  const { chain } = useNetwork();
   const fetchLendOffers = async () => {
     const offerId = await readContract({
-      address: "0xDAA0fDD4b4797Ceb97A6D58dd86b4f0F003CFCA2",
+      address: tokenAddress[chain.id][2],
       abi: LoanABI,
       functionName: "nextOfferId",
     });
@@ -19,7 +21,7 @@ const useGetLendOffers = () => {
       for (let index = 0; index < parseInt(convertedOfferId); index++) {
         txs.push(
           readContract({
-            address: "0xDAA0fDD4b4797Ceb97A6D58dd86b4f0F003CFCA2",
+            address: tokenAddress[chain.id][2],
             abi: LoanABI,
             functionName: "lendOffers",
             args: [index + 1],

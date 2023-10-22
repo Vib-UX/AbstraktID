@@ -6,6 +6,7 @@ import BorrowLendTable from "./BorrowLendTable";
 import Navigation from "./Header";
 import HorizontalLinearStepper from "./Steps";
 import DataTable from "./Table";
+import useNftDetails from "./hooks/useNftDetails";
 import MyModal from "./modal";
 
 export const darkTheme = createTheme({
@@ -19,13 +20,19 @@ function Main() {
   const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState([]);
   const [isVerified, setIsVerified] = useState(false);
-
+  const { tokenId } = useNftDetails();
   if (isVerified) {
     return (
-      <HorizontalLinearStepper
-        isVerified={isVerified}
-        setIsVerified={setIsVerified}
-      />
+      <ThemeProvider theme={darkTheme}>
+        <CssBaseline />
+        <Navigation />
+        <HorizontalLinearStepper
+          isVerified={isVerified}
+          setIsVerified={setIsVerified}
+          data={data}
+          tokenId={tokenId}
+        />
+      </ThemeProvider>
     );
   }
 
@@ -74,7 +81,11 @@ function Main() {
         </div>
         {type === "lend" && <DataTable setIsVerified={setIsVerified} />}
         {type === "borrow" && (
-          <BorrowLendTable setIsOpen={setIsOpen} setData={setData} />
+          <BorrowLendTable
+            setIsOpen={setIsOpen}
+            setData={setData}
+            setIsVerified={setIsVerified}
+          />
         )}
       </div>
     </ThemeProvider>
