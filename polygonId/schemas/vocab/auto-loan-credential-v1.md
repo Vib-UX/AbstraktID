@@ -6,7 +6,7 @@ User age
   "age": "20-100"
 ```
 
-# Income
+# income
 
 User income
 
