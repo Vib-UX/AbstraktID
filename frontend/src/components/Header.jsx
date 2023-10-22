@@ -5,8 +5,8 @@ import Toolbar from "@mui/material/Toolbar";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import * as React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import SafeWallet from "../assets/safe.svg";
 import LoginVerifier from "./LoginModal";
-
 export default function Navigation() {
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
@@ -50,7 +50,7 @@ export default function Navigation() {
                 alignItems: "center",
               }}
             >
-              Abstrakt ID Powered by{" "}
+              Powered by{" "}
               <img
                 src="https://assets-global.website-files.com/637359c81e22b715cec245ad/63dc31f8817a4a509d7635a7_Logo.svg"
                 style={{
@@ -60,8 +60,25 @@ export default function Navigation() {
                 }}
                 alt="polygon"
               />{" "}
-              &nbsp; and
-              <h1 className="ml-2">Safe Wallet</h1>
+              <img
+                src="https://sepolia-blockscout.scroll.io/images/logo-3ce7703860c2e6a0c62fdfa7fe6850d5.png?vsn=d"
+                style={{
+                  width: "100px",
+                  height: "30px",
+                  marginLeft: "10px",
+                  filter: "brightness(0) invert(1)",
+                }}
+                alt="polygon"
+              />{" "}
+              <img
+                src={SafeWallet}
+                style={{
+                  width: "100px",
+                  height: "30px",
+                  filter: "brightness(0) invert(1)",
+                }}
+                alt="polygon"
+              />{" "}
             </Link>
           </Typography>
           <div className="flex items-center space-x-2 justify-end">
