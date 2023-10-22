@@ -2,13 +2,13 @@ import { RainbowKitProvider, getDefaultWallets } from "@rainbow-me/rainbowkit";
 import "@rainbow-me/rainbowkit/styles.css";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { WagmiConfig, configureChains, createConfig } from "wagmi";
-import { polygonMumbai } from "wagmi/chains";
+import { polygonMumbai, scrollSepolia } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import FormPropsTextFields from "./components/Form";
 import Main from "./components/Main";
 
 const { chains, publicClient } = configureChains(
-  [polygonMumbai],
+  [scrollSepolia, polygonMumbai],
   [publicProvider()]
 );
 const { connectors } = getDefaultWallets({

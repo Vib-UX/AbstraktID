@@ -5,32 +5,29 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Stepper from "@mui/material/Stepper";
 import Typography from "@mui/material/Typography";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 import * as React from "react";
 import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
+import { deserialize, useAccount } from "wagmi";
 import AgeVerifier from "./AgeVerifier";
 import ExperienceVerifier from "./ExperienceVerifier";
 import SalaryVerifier from "./SalaryVerifier";
+import useBorrowTransaction from "./hooks/useBorrowTransaction";
 
 const steps = [
   "Verfiy your age",
-  "Verfiy your experience",
   "Verfiy your income",
+  "Verfiy your creditscore",
 ];
 
-export default function HorizontalLinearStepper({ setIsVerified }) {
+export default function HorizontalLinearStepper({ setIsVerified, data }) {
+  const [tokenId, setTokenId] = React.useState("0");
   const [activeStep, setActiveStep] = React.useState(0);
   const { width, height } = useWindowSize();
   const [skipped, setSkipped] = React.useState(new Set());
-  const [txState, setTxState] = React.useState({
-    isAgeVerified: false,
-    isExperienceVerified: false,
-    isSalaryVerified: false,
-  });
-
-  const isStepOptional = (step) => {
-    return step === 1;
-  };
+  const { address } = useAccount();
+  const { borrow } = useBorrowTransaction();
 
   const isStepSkipped = (step) => {
     return skipped.has(step);
@@ -45,29 +42,6 @@ export default function HorizontalLinearStepper({ setIsVerified }) {
 
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
     setSkipped(newSkipped);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleSkip = () => {
-    if (!isStepOptional(activeStep)) {
-      // You probably want to guard against something like this,
-      // it should never occur unless someone's actively trying to break something.
-      throw new Error("You can't skip a step that isn't optional.");
-    }
-
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setSkipped((prevSkipped) => {
-      const newSkipped = new Set(prevSkipped.values());
-      newSkipped.add(activeStep);
-      return newSkipped;
-    });
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
   };
 
   return (
@@ -151,12 +125,26 @@ export default function HorizontalLinearStepper({ setIsVerified }) {
                 height: "20px",
               }}
             />
-            <div>Enter your account number</div>
+            <div></div>
             <TextField
               id="outlined-number"
-              placeholder="HDFC: 791500584504"
+              placeholder="100 USDC"
+              disabled
+              value={`Transfer ${deserialize(data[0] / 1e18)} loan amount `}
               InputLabelProps={{
                 shrink: true,
+              }}
+            />
+            <div className="mt-2">Enter collateral id</div>
+            <TextField
+              id="outlined-number"
+              placeholder="100 USDC"
+              value={tokenId}
+              InputLabelProps={{
+                shrink: true,
+              }}
+              onChange={(e) => {
+                setTokenId(e.target.value);
               }}
             />
             <div
@@ -166,35 +154,24 @@ export default function HorizontalLinearStepper({ setIsVerified }) {
                 justifyContent: "center",
               }}
             >
-              <Button
-                variant="contained"
-                style={{
-                  backgroundColor: "#8d2cab",
-                  marginTop: "20px",
-                  fontWeight: "normal",
-                  color: "#fff",
-                }}
-                onClick={() => {
-                  setIsVerified(false);
-                }}
-              >
-                Transfer Funds
-              </Button>
-              <Button
-                variant="contained"
-                style={{
-                  backgroundColor: "#8d2cab",
-                  marginTop: "20px",
-                  fontWeight: "normal",
-                  marginLeft: "20px",
-                  color: "#fff",
-                }}
-                onClick={() => {
-                  setIsVerified(false);
-                }}
-              >
-                Connect wallet
-              </Button>
+              {address ? (
+                <Button
+                  variant="contained"
+                  style={{
+                    backgroundColor: "#8d2cab",
+                    marginTop: "20px",
+                    fontWeight: "normal",
+                    color: "#fff",
+                  }}
+                  onClick={() => {
+                    borrow(data[4], tokenId);
+                  }}
+                >
+                  Borrow
+                </Button>
+              ) : (
+                <ConnectButton />
+              )}
             </div>
           </div>
         </React.Fragment>
