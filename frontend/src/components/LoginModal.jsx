@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 
 import { Backdrop } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 
 function LoginVerifier({
@@ -16,7 +15,6 @@ function LoginVerifier({
 }) {
   const [sessionId, setSessionId] = useState("");
   const [qrCodeData, setQrCodeData] = useState();
-  const navigate = useNavigate();
   const [isHandlingVerification, setIsHandlingVerification] = useState(false);
   const [verificationCheckComplete, setVerificationCheckComplete] =
     useState(false);

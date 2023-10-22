@@ -4,6 +4,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { WagmiConfig, configureChains, createConfig } from "wagmi";
 import { polygonMumbai } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
+import FormPropsTextFields from "./components/Form";
 import Main from "./components/Main";
 
 const { chains, publicClient } = configureChains(
@@ -28,6 +29,7 @@ const App = () => {
         <Router>
           <Routes>
             <Route element={<Main />} path="/" />
+            <Route element={<FormPropsTextFields />} path="/claim" />
           </Routes>
         </Router>
       </RainbowKitProvider>
