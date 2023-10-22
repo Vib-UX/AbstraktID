@@ -68,6 +68,7 @@ export default function Navigation() {
               backgroundColor: "#8d2cab",
               fontWeight: "normal",
               color: "#fff",
+              marginRight: "10px",
             }}
             onClick={() => {
               if (localStorage.getItem("user_did")) {

@@ -2,8 +2,10 @@ import { useState } from "react";
 
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import MyModal from "./modal";
+import BorrowLendTable from "./BorrowLendTable";
 import Navigation from "./Header";
+import DataTable from "./Table";
+import MyModal from "./modal";
 
 export const darkTheme = createTheme({
   palette: {
@@ -58,10 +60,10 @@ function Main() {
             Borrow
           </a>
         </div>
-        {/* {type === "lend" && <DataTable />} */}
-        {/* {type === "borrow" && (
+        {type === "lend" && <DataTable />}
+        {type === "borrow" && (
           <BorrowLendTable setIsOpen={setIsOpen} setData={setData} />
-        )} */}
+        )}
       </div>
     </ThemeProvider>
   );
