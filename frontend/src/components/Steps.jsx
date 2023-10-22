@@ -130,7 +130,7 @@ export default function HorizontalLinearStepper({ setIsVerified, data }) {
               id="outlined-number"
               placeholder="100 USDC"
               disabled
-              value={`Transfer ${deserialize(data[0]) / 1e18} loan amount `}
+              value={`Transfer  $${deserialize(data[0]) / 1e18} loan amount `}
               InputLabelProps={{
                 shrink: true,
               }}
