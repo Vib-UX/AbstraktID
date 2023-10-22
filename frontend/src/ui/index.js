@@ -21,7 +21,7 @@ function Main() {
     <ThemeProvider theme={darkTheme}>
       <MyModal setIsOpen={setIsOpen} isOpen={isOpen} data={data} />
       <CssBaseline />
-      <Navigation />
+      {/* <Navigation /> */}
       <div className="h-[200px]"></div>
       <div
         style={{
