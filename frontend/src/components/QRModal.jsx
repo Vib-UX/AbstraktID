@@ -1,8 +1,7 @@
 import { Button } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
-import * as React from "react";
+import Link from "next/link";
 import QRCode from "react-qr-code";
-import { Link } from "react-router-dom";
 
 export default function QRCodeModel({ open, qrCodeData }) {
   return (
@@ -32,7 +31,7 @@ export default function QRCodeModel({ open, qrCodeData }) {
           }}
         />
         <Link
-          to={"/"}
+          href={"/"}
           style={{
             marginTop: "20px",
             display: "flex",
