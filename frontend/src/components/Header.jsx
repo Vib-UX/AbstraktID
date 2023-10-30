@@ -1,14 +1,16 @@
+"use client";
+import SafeApp from "@/app/SafeApp";
 import { Button, Typography } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import * as React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import SafeWallet from "../assets/safe.svg";
 import LoginVerifier from "./LoginModal";
 export default function Navigation() {
-  const navigate = useNavigate();
+  const navigate = useRouter();
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -49,7 +51,7 @@ export default function Navigation() {
             className="flex items-center justify-start space-x-4"
           >
             <Link
-              to={"/"}
+              href={"/"}
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -76,7 +78,7 @@ export default function Navigation() {
                 alt="polygon"
               />{" "}
               <img
-                src={SafeWallet}
+                src={"/safe.svg"}
                 style={{
                   width: "100px",
                   height: "30px",
@@ -105,6 +107,7 @@ export default function Navigation() {
             >
               Create a new claim
             </Button>
+            <SafeApp />
             <ConnectButton />
           </div>
         </Toolbar>
