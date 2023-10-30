@@ -53,6 +53,7 @@ export default function FormPropsTextFields() {
       <QRCodeModel open={isQrOpen} qrCodeData={qrCode} />
       <CssBaseline />
       <Navigation />
+
       <Box
         component="form"
         sx={{

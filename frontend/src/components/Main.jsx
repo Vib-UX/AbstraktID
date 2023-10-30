@@ -41,7 +41,14 @@ function Main() {
       <MyModal setIsOpen={setIsOpen} isOpen={isOpen} data={data} />
       <CssBaseline />
       <Navigation />
-      <div className="h-[200px]"></div>
+      <div className="h-[100px]"></div>
+      <div className="flex items-center justify-center">
+        <img
+          src={"/abkid.png"}
+          className="w-[500px] h-[200px] mb-10 rounded-xl scale-90"
+        />
+      </div>
+
       <div
         style={{
           maxWidth: "1000px",

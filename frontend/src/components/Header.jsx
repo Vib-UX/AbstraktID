@@ -48,10 +48,6 @@ export default function Navigation() {
             component="div"
             className="flex items-center justify-start space-x-4"
           >
-            <img
-              src={"/abkid.png"}
-              className="w-[200px] h-full rounded-xl scale-90"
-            />
             <Link
               to={"/"}
               style={{
