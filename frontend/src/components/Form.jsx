@@ -1,3 +1,4 @@
+"use client";
 import { Button, FormGroup, Paper } from "@mui/material";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";

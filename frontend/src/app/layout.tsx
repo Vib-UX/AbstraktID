@@ -1,3 +1,4 @@
+'use client'
 import '@rainbow-me/rainbowkit/styles.css';
 import * as React from 'react';
 import "../styles/globals.css";
