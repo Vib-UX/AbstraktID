@@ -34,7 +34,7 @@ const AppBar = ({ isLoggedIn, onLogin, onLogout, userInfo }) => {
                         color: "#fff",
                         marginRight: "10px",
                     }} variant="contained" onClick={onLogin}>
-                    Connect with safe
+                    Connect with  <img src="/safe.svg" className="w-[50px] ml-2 h-[20px]" />
                 </Button>
             )}
         </Box>

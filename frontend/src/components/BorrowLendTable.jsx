@@ -1,4 +1,3 @@
-import React from "react";
 import { deserialize } from "wagmi";
 import useGetLendOffers from "./hooks/useGetLendOffers";
 
@@ -21,7 +20,7 @@ const BorrowLendTable = ({ setIsOpen, setData, setIsVerified }) => {
             .map((t, index) => (
               <tr className="border-b" key={index}>
                 <td className="py-4 px-4 border-b text-center">
-                  {deserialize(t[0]) / 1e18} USDC
+                  {deserialize(t[0]) / 1e18}k USDC
                 </td>
                 <td className="py-4 px-4 border-b text-center">
                   {deserialize(t[1])}%
