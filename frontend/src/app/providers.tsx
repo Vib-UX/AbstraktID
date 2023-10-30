@@ -11,20 +11,17 @@ import {
 } from '@rainbow-me/rainbowkit/wallets';
 import * as React from 'react';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
-import { goerli, optimismGoerli, polygon, polygonMumbai } from 'wagmi/chains';
+import { optimismGoerli, polygonMumbai, scrollSepolia } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
     [
-        polygon,
-        ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true'
-            ? [goerli, polygonMumbai]
-            : []),
+        polygonMumbai, scrollSepolia
     ],
     [publicProvider()]
 );
 
-const projectId = process.env.NEXT_PUBLIC_PROJECT_ID || '';
+const projectId = '103333b30405efc424b73b939a369d24' || '';
 const demoAppInfo = {
     appName: 'Dapp Starter',
 };
